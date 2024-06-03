@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  color: green;
+  color: rgb(34, 139, 91);
 }
 
 .navbar{
@@ -24,10 +24,10 @@
 
 .nav a{
   text-decoration: none;
-  color: green;
+  color: rgb(34, 139, 91);
 }
 
  .nav a:hover, .nav a:active, .nav:visited{
-  color: green;
+  color: rgb(34, 139, 91);
   text-decoration: underline;
 }
