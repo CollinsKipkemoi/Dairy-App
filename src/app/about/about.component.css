@@ -1,0 +1,17 @@
+.details{
+  /* From https://css.glass */
+  background: rgba(248, 249, 250, 0.22);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2.8px);
+  -webkit-backdrop-filter: blur(2.8px);
+  border: 1px solid rgba(248, 249, 250, 0.62);
+}
+
+h2, dd{
+  color: green;
+}
+
+dt{
+  color: rgb(50, 51, 58);
+}
