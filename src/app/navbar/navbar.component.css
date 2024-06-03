@@ -22,7 +22,12 @@
   font-size: 1.5em;
 }
 
-.nav a:hover{
+.nav a{
+  text-decoration: none;
+  color: green;
+}
+
+ .nav a:hover, .nav a:active, .nav:visited{
   color: green;
   text-decoration: underline;
 }
