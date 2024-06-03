@@ -1,0 +1,18 @@
+*{
+  color: green;
+}
+
+.entries{
+  padding: 20px 30px;
+  border: 1px solid green;
+  border-radius: 5px;
+  background-color: green;
+  width: fit-content;
+  color: #e9ecef;
+}
+
+h1{
+  color: green;
+}
+
+

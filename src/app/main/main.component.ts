@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './main.component.css'
 })
 export class MainComponent {
-
+  numberOfEntries : number  = 5;
+  startDate : string = new Date(2024,0, 1).toDateString();
+  endDate : string = new Date().toDateString();
 }
