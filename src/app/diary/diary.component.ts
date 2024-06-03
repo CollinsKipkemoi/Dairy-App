@@ -1,13 +1,15 @@
 import {Component} from '@angular/core';
 import {Diary} from "../diary";
 import {JsonPipe, NgForOf} from "@angular/common";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-diary',
   standalone: true,
   imports: [
     JsonPipe,
-    NgForOf
+    NgForOf,
+    RouterLink
   ],
   templateUrl: './diary.component.html',
   styleUrl: './diary.component.css'

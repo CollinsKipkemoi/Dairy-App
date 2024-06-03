@@ -1,18 +1,16 @@
 *{
-  color: green;
+  color: rgb(34, 139, 91);
 }
 
 .entries{
   padding: 20px 30px;
-  border: 1px solid green;
+  border: 1px solid rgb(34, 139, 91);
   border-radius: 5px;
-  background-color: green;
+  background-color: rgb(34, 139, 91);
   width: fit-content;
   color: #e9ecef;
 }
 
 h1{
-  color: green;
+  color: rgb(34, 139, 91);
 }
-
-
