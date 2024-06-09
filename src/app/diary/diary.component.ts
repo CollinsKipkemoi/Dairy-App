@@ -31,6 +31,8 @@ export class DiaryComponent implements OnInit {
   handleSave(diary: Diary): void {
     if(this.selectedDiary !== null) {
       Object.assign(this.selectedDiary, diary);
+    } else{
+      this.diaryService.addDiary(diary);
     }
     this.selectedDiary = null;
 

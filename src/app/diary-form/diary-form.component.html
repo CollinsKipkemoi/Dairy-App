@@ -1,5 +1,5 @@
 <div class="container">
-  <form action="" [formGroup]="diaryForm" novalidate>
+  <form (ngSubmit)="handleSubmit()" action="" [formGroup]="diaryForm" novalidate>
     <div class="form-group">
       <label for="title">Diary Title</label>
       <input type="text" class="form-control" id="title" placeholder="Title" [value]="diary.diaryTitle"

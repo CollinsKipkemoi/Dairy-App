@@ -39,4 +39,8 @@ export class DiaryService {
   getDiaries(): Diary[] {
     return this.diaries;
   }
+
+  addDiary(diary: Diary): void {
+    this.diaries.push(diary);
+  }
 }
