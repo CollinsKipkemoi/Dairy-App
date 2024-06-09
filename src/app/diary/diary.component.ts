@@ -1,45 +1,43 @@
-import {Component} from '@angular/core';
+import { DiaryService } from './../diary.service';
+import {Component, OnInit} from '@angular/core';
 import {Diary} from "../diary";
 import {JsonPipe, NgForOf} from "@angular/common";
 import {RouterLink} from "@angular/router";
+import { DiaryFormComponent } from "../diary-form/diary-form.component";
 
 @Component({
-  selector: 'app-diary',
-  standalone: true,
-  imports: [
-    JsonPipe,
-    NgForOf,
-    RouterLink
-  ],
-  templateUrl: './diary.component.html',
-  styleUrl: './diary.component.css'
+    selector: 'app-diary',
+    standalone: true,
+    templateUrl: './diary.component.html',
+    styleUrl: './diary.component.css',
+    imports: [
+        JsonPipe,
+        NgForOf,
+        RouterLink,
+        DiaryFormComponent
+    ]
 })
-export class DiaryComponent {
-  diaries: Diary[] = [
-    {
-      diaryTitle: 'First Diary',
-      diaryDate: '2020-01-01',
-      diaryText: 'This is my first diary.'
-    },
-    {
-      diaryTitle: 'Second Diary',
-      diaryDate: '2020-01-02',
-      diaryText: 'This is my second diary.'
-    },
-    {
-      diaryTitle: 'Third Diary',
-      diaryDate: '2020-01-03',
-      diaryText: 'This is my third diary.'
-    },
-    {
-      diaryTitle: 'Fourth Diary',
-      diaryDate: '2020-01-04',
-      diaryText: 'This is my fourth diary.'
-    },
-    {
-      diaryTitle: 'Fifth Diary',
-      diaryDate: '2020-01-05',
-      diaryText: 'This is my fifth diary.'
+export class DiaryComponent implements OnInit {
+
+  diaries : Diary[] = []
+  selectedDiary: Diary | null = null;
+
+  constructor(private diaryService: DiaryService) { }
+
+  onSelect(diary: Diary): void {
+    this.selectedDiary = diary;
+  }
+
+  handleSave(diary: Diary): void {
+    if(this.selectedDiary !== null) {
+      Object.assign(this.selectedDiary, diary);
     }
-  ]
+    this.selectedDiary = null;
+
+  }
+
+  ngOnInit(){
+    this.diaries = this.diaryService.getDiaries();
+  }
+
 }

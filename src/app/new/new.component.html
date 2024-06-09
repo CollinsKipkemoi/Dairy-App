@@ -1,30 +1,5 @@
 <div class="container">
   <h2 class="display-2 my-3">New Diary</h2>
 
-  <form action="" novalidate>
-    <div class="form-group">
-      <label for="title">Title</label>
-      <input
-        type="text"
-        class="form-control is-invalid"
-        id="title"
-        placeholder="Title"
-        required
-      />
-      <div class="invalid-feedback">Please provide a title!</div>
-    </div>
-    <div class="form-group">
-      <label for="description">Diary Text</label>
-      <textarea
-        class="form-control"
-        id="description"
-        rows="5"
-        required
-      ></textarea>
-      <div class="invalid-feedback">Please provide a text!</div>
-    </div>
-
-
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+  <app-diary-form></app-diary-form>
 </div>

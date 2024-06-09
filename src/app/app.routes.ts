@@ -19,11 +19,11 @@ export const routes: Routes = [
     component: DiaryComponent
   },
   {
-    path: 'edit',
+    path: 'diary/edit/:id',
     component: EditComponent
   },
   {
-    path: 'new',
+    path: 'diary/new',
     component: NewComponent
   }
 ];

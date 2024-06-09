@@ -1,17 +1,14 @@
 <div class="container">
   <h2 class="display-2 my-3">My diaries</h2>
-  <p class="newDiary"><a class="btn btn-success" routerLink="/new" role="button">New diary</a></p>
+  <p class="newDiary"><a class="btn btn-success" routerLink="/diary/new" role="button">New diary</a></p>
 
   <div class="row">
     <div class="list-group col">
-      <a
-        class="list-group-item list-group-item-action"
-        *ngFor="let diary of diaries;"
-      >
+      <a class="list-group-item list-group-item-action" *ngFor="let diary of diaries;" (click)="onSelect(diary)">
         <div class="d-flex w-100 justify-content-between align-items-center">
           <h5 class="mb-1">{{ diary.diaryTitle }}</h5>
           <span class="badge text-bg-success edit">
-            <a href="/edit" class="text-white">Edit</a>
+            <a [routerLink]="['/edit']" class="text-white">Edit</a>
           </span>
         </div>
         <p class="mb-1">
@@ -22,9 +19,16 @@
           <span class="badge badge-light badge-pill">3</span>
         </small>
 
+
       </a>
 
     </div>
+
+    @if(selectedDiary !== null){
+      <div class="col">
+        <app-diary-form [diary]="selectedDiary" (saveDiary)="handleSave($event)" ></app-diary-form>
+      </div>
+    }
 
   </div>
 
