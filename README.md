@@ -1,27 +1,43 @@
-# DailyDoodle
+# DailyDoodle Diary App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.5.
+Welcome to the DailyDoodle Diary App, a modern, user-friendly application designed for keeping track of your daily musings, thoughts, and experiences. Built with the powerful Laravel framework for the backend and Angular for the frontend, this app offers a seamless experience for users looking to document their daily lives.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Add Diary Entries:** Easily add new entries to your diary with a simple and intuitive interface. Each entry can include a title, the date, and the diary text itself.
 
-## Code scaffolding
+- **Edit Diary Entries:** Made a mistake or want to update an entry? Our app allows you to edit your diary entries at any time, ensuring your diary always reflects your current thoughts and feelings.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **List All Diary Entries:** View all your diary entries in one place. Our app provides a comprehensive list of all your entries, allowing you to browse through your memories and experiences with ease.
 
-## Build
+## Getting Started
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+To get started with the DailyDoodle Diary App, follow these simple steps:
 
-## Running unit tests
+1. **Clone the repository:**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. **Navigate to the project directory:**
 
-## Running end-to-end tests
+3. **Install dependencies:**
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+4. **Set up your environment:**
+- Copy `.env.example` to `.env` and configure your database and other environment variables.
 
-## Further help
+5. **Run the application:**
+- Start the backend server:
+  ```
+  php artisan serve
+  ```
+- In a new terminal, start the frontend development server:
+  ```
+  ng serve
+  ```
+- Navigate to `http://localhost:4200/` to view the app.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Contributing
+
+We welcome contributions to the DailyDoodle Diary App! Please read our [contribution guidelines](diaryAPI/README.md#contributing) for more information on how you can contribute to the project.
+
+## License
+
+The DailyDoodle Diary App is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
