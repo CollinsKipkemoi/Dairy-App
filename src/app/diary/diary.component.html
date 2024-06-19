@@ -4,7 +4,7 @@
 
   <div class="row">
     <div class="list-group col">
-      <a class="list-group-item list-group-item-action" *ngFor="let diary of diaries;" (click)="onSelect(diary)">
+      <a class="list-group-item list-group-item-action" *ngFor="let diary of diaries;" (click)="onSelect(diary)" [routerLink]="['/diary/edit']">
         <div class="d-flex w-100 justify-content-between align-items-center">
           <h5 class="mb-1">{{ diary.diaryTitle }}</h5>
           <span class="badge text-bg-success edit">
@@ -15,7 +15,7 @@
           {{ diary.diaryText }}
         </p>
         <small>
-          <i class="fas fa-map-marker-alt"></i> {{ diary.diaryDate }}
+          <i class="fas fa-map-marker-alt"></i> {{diary.diaryDate }}
           <span class="badge badge-light badge-pill">3</span>
         </small>
 

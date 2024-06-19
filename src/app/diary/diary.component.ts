@@ -28,7 +28,7 @@ export class DiaryComponent implements OnInit {
     this.selectedDiary = diary;
   }
 
-  handleSave(diary: Diary): void {
+  handleSave(diary: Diary) {
     if(this.selectedDiary !== null) {
       Object.assign(this.selectedDiary, diary);
     } else{
@@ -39,7 +39,7 @@ export class DiaryComponent implements OnInit {
   }
 
   ngOnInit(){
-    this.diaries = this.diaryService.getDiaries();
+    this.diaryService.getDiaries().subscribe(diaries => this.diaries = diaries);
   }
 
 }

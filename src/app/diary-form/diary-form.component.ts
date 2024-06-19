@@ -43,4 +43,13 @@ export class DiaryFormComponent implements OnChanges {
     const diary : Diary = new Diary();
     this.saveDiary.emit(Object.assign(diary, this.diaryForm.value));
   }
+
+  onSave(): void {
+  const diary: Diary = {
+    diaryTitle: this.diaryForm.get('diaryTitle')?.value || '',
+    diaryDate: this.diaryForm.get('diaryDate')?.value || '',
+    diaryText: this.diaryForm.get('diaryText')?.value || '', 
+  };
+  this.saveDiary.emit(diary);
+}
 }

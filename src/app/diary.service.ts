@@ -1,46 +1,57 @@
 import { Injectable } from '@angular/core';
 import { Diary } from './diary';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DiaryService {
 
-  private diaries: Diary[] = [
-    {
-      diaryTitle: 'First Diary',
-      diaryDate: '2020-01-01',
-      diaryText: 'This is my first diary.'
-    },
-    {
-      diaryTitle: 'Second Diary',
-      diaryDate: '2020-01-02',
-      diaryText: 'This is my second diary.'
-    },
-    {
-      diaryTitle: 'Third Diary',
-      diaryDate: '2020-01-03',
-      diaryText: 'This is my third diary.'
-    },
-    {
-      diaryTitle: 'Fourth Diary',
-      diaryDate: '2020-01-04',
-      diaryText: 'This is my fourth diary.'
-    },
-    {
-      diaryTitle: 'Fifth Diary',
-      diaryDate: '2020-01-05',
-      diaryText: 'This is my fifth diary.'
-    }
-  ]
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
-
-  getDiaries(): Diary[] {
-    return this.diaries;
+  getDiaries(): Observable<Diary[]> {
+    // return this.diaries;
+    return this.http.get<Diary[]>('http://localhost:8000/api/diaries');
   }
 
   addDiary(diary: Diary): void {
-    this.diaries.push(diary);
+    this.http.post('http://localhost:8000/api/diaries', diary).subscribe();
   }
+
+  countDiaries(): Observable<number> {
+    return this.http.get<Diary[]>('http://localhost:8000/api/diaries').pipe(
+      map(diaries => diaries.length)
+    );
+  }
+
+  firstDate(){
+    return this.http.get<Diary[]>('http://localhost:8000/api/diaries').pipe(
+      map(diaries => diaries[0].diaryDate)
+    );
+  }
+
+  lastDate(){
+    return this.http.get<Diary[]>('http://localhost:8000/api/diaries').pipe(
+      map(diaries => diaries[diaries.length - 1].diaryDate)
+    );
+  }
+
+  getIdForDiary(targetDiary: Diary): Observable<number> {
+    return this.http.get<Diary[]>('http://localhost:8000/api/diaries').pipe(
+      map(diaries => {
+        const targetIndex = diaries.findIndex(diary => diary.diaryDate === targetDiary.diaryDate && diary.diaryTitle === targetDiary.diaryTitle && diary.diaryText === targetDiary.diaryText);
+        return targetIndex;
+      })
+    );
+  }
+
+  updateDiary(diary: Diary) {
+    let id = this.getIdForDiary(diary);
+    return this.http.put(`http://localhost:8000/api/diaries/${id}`, diary).subscribe();
+
+  }
+
+
 }

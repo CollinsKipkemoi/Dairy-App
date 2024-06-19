@@ -15,8 +15,9 @@ export class NewComponent {
 
   constructor(private diaryService : DiaryService, private router : Router) { }
 
-  handleSave(diary : Diary): void {
-    this.diaryService.addDiary(diary);
+  async handleSave(diary: Diary) {
+    await this.diaryService.addDiary(diary);
     this.router.navigate(['/diary']);
   }
+  
 }
